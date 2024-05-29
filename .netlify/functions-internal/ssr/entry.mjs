@@ -88,7 +88,7 @@ const _manifest = Object.assign(manifest, {
     middleware: onRequest
 });
 const _args = {
-    "middlewareSecret": import.meta.env.MIDDLEWARE_SECRET
+    "middlewareSecret": "7e71d95d-648a-4b32-a338-92635d0147ec"
 };
 const _exports = serverEntrypointModule.createExports(_manifest, _args);
 const __astrojsSsrVirtualEntry = _exports.default;
