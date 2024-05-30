@@ -4,7 +4,7 @@ import { type BusType } from "../utils/type";
 import { getDepartureLocations, getDestinations } from "../stores/bus";
 import CooperativeCard from "../components/CooperativeCard.astro";
 import Layout from "../layout/Layout.astro";
-import SearchForm from "../components/SearchForm.tsx";
+import SearchForm from "../components/SearchForm";
 
 const response = await GET(Astro);
 const buses = await response.json();
@@ -49,7 +49,7 @@ getDestinations(destinations);
       </p>
     </div>
     <div class="mt-8">
-      <h3 class="text-lg font-bold mb-3">What is Happy Travel?</h3>
+      <h3 class="text-lg font-bold mb-3">Why use Wanderu to book bus & train tickets?</h3>
       <p>
         In publishing and graphic design, Lorem ipsum is a placeholder text
         commonly used to demonstrate the visual form of a document or a typeface
@@ -58,7 +58,16 @@ getDestinations(destinations);
       </p>
     </div>
     <div class="mt-8">
-      <h3 class="text-lg font-bold mb-3">What is Happy Travel?</h3>
+      <h3 class="text-lg font-bold mb-3">How to find cheap bus & train tickets on Wanderu:</h3>
+      <p>
+        In publishing and graphic design, Lorem ipsum is a placeholder text
+        commonly used to demonstrate the visual form of a document or a typeface
+        without relying on meaningful content. Lorem ipsum may be used as a
+        placeholder before the final copy is available
+      </p>
+    </div>
+    <div class="mt-8">
+      <h3 class="text-lg font-bold mb-3">Why you should travel by bus and train</h3>
       <p>
         In publishing and graphic design, Lorem ipsum is a placeholder text
         commonly used to demonstrate the visual form of a document or a typeface
