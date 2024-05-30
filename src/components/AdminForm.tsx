@@ -23,7 +23,7 @@ export default function AddBusForm() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
+        await axios.post(
         "/api/createBus",
         { body: formData },
         {
