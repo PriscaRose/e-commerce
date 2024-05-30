@@ -50,7 +50,7 @@ const DashboardComponent = ({ buses }: { buses: BusType[] }) => {
         Booking Overview
       </h1>
 
-      <div className="bg-white shadow-md rounded-md p-6 mb-6">
+      <div className="p-6 mb-6">
         <div>
           <h2 className="text-xl font-semibold mb-4">Quick Stats:</h2>
           <div className="grid grid-cols-2 gap-5">
@@ -90,7 +90,7 @@ const DashboardComponent = ({ buses }: { buses: BusType[] }) => {
         </div>
       </div>
 
-      <div className="bg-white shadow-md rounded-md p-6 mb-6">
+      <div className="p-6 mb-6">
         <h2 className="text-xl font-semibold mb-4">Recent Bookings:</h2>
         <ul>
           <li className="mb-2">[Booking ID] - [Route] - [Date]</li>
@@ -101,22 +101,22 @@ const DashboardComponent = ({ buses }: { buses: BusType[] }) => {
         </ul>
       </div>
 
-      <div className="bg-white shadow-md rounded-md p-6 mb-6">
+      <div className="p-6 mb-6">
         <h2 className="text-xl font-semibold mb-4">Manage Routes:</h2>
         <p>Add, Edit, or Delete routes here...</p>
       </div>
 
-      <div className="bg-white shadow-md rounded-md p-6 mb-6">
+      <div className="p-6 mb-6">
         <h2 className="text-xl font-semibold mb-4">Manage Bookings:</h2>
         <p>View, Search, and Filter bookings here...</p>
       </div>
 
-      <div className="bg-white shadow-md rounded-md p-6 mb-6">
+      <div className="p-6 mb-6">
         <h2 className="text-xl font-semibold mb-4">Customer Support:</h2>
         <p>Open support tickets or access live chat support...</p>
       </div>
 
-      <div className="bg-white shadow-md rounded-md p-6 mb-6">
+      <div className="p-6 mb-6">
         <h2 className="text-xl font-semibold mb-4">Settings:</h2>
         <p>
           Update profile settings, account security, and notification
