@@ -28,7 +28,7 @@ export const POST: APIRoute = async ({ request }) => {
         );
         seatData?.forEach((key) => {
           if (key === "isPicked") {
-            return seat[key] = false;
+            return (seat[key] = false);
           }
           return (seat[key] = "");
         });

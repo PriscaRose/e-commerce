@@ -45,7 +45,7 @@ export const POST: APIRoute = async (context) => {
       seats: seats,
       cooperative: {
         name: user?.cooperativeName,
-        phoneNumber: "034 55 666 77",
+        phoneNumber: "",
       },
       price,
     });

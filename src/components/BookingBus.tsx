@@ -114,6 +114,8 @@ export default function BookingBus({ buses }: BookingBusProps) {
                           {bus.busDepartureLocation}
                         </span>
                       </p>
+                    </div>
+                    <div>
                       <p className="text-base md:text-lg lg:text-xl xl:text-2xl">
                         ―{bus.estimatedDuration}➝
                       </p>

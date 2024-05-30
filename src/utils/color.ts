@@ -1,3 +1,4 @@
+import type { CustomFlowbiteTheme } from "flowbite-react";
 
 export function color(index: number) {
   let color;

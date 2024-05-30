@@ -109,3 +109,12 @@ export interface User {
   cooperativePhoneNumber: string;
   id: string;
 }
+
+export interface BusSeatsOverview {
+  busId: String | undefined;
+  totalSeats: number;
+  bookedSeats: number;
+  bookedPercentage: number;
+  availablePercentage: number;
+  route: { location: String; destination: String };
+}

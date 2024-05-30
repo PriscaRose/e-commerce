@@ -131,7 +131,6 @@ export default function BusForm({
             required
             value={driver.driverName}
             onChange={handleChange}
-            disabled={isUpdating}
           />
         </div>
         <div className="flex align-center mb-6">
@@ -146,7 +145,6 @@ export default function BusForm({
             value={driver.driverPhoneNumber}
             onChange={handleChange}
             required
-            disabled={isUpdating}
           />
         </div>
         <div className="flex align-center mb-6">

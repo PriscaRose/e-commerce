@@ -1,4 +1,4 @@
-import React, { useState, type FormEvent, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { MdEdit } from "react-icons/md";
 import { RiDeleteBinLine } from "react-icons/ri";
@@ -14,6 +14,7 @@ interface BusesListProps {
 }
 export default function BusesList({ buses, cooperativeName }: BusesListProps) {
   const [searchTerm, setSearchTerm] = useState("");
+  const [originalBuses, setOriginalBuses] = useState<BusType[]>([]);
   const [busesToDisplay, setBusesToDisplay] = useState<BusType[]>([]);
   const [busId, setBusId] = useState<String>("");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,22 +22,25 @@ export default function BusesList({ buses, cooperativeName }: BusesListProps) {
   const [isProcessing, setIsProcessing] = useState(false);
 
   useEffect(() => {
-    const filteredBuses = buses.filter(
-      (bus: BusType) => bus.cooperative.name === cooperativeName
+    setOriginalBuses(
+      buses.filter((bus) => bus.cooperative.name === cooperativeName)
     );
-    setBusesToDisplay(filteredBuses);
   }, [buses, cooperativeName]);
 
-  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    setSearchTerm(e.target.value);
-  };
+  useEffect(() => {
+    if (!searchTerm) {
+      setBusesToDisplay(originalBuses);
+      return;
+    }
 
-  const submitSearch = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const foundBuses = busesToDisplay.filter(
+    const foundBuses = originalBuses.filter(
       (bus: BusType) => bus.busNumber.toLowerCase() === searchTerm.toLowerCase()
     );
     setBusesToDisplay(foundBuses);
+  }, [originalBuses, searchTerm]);
+
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    setSearchTerm(e.target.value);
   };
 
   const deleteBus = async (busId: String) => {
@@ -106,11 +110,7 @@ export default function BusesList({ buses, cooperativeName }: BusesListProps) {
   return (
     <div className="mt-10">
       <div className="mb-8">
-        <form
-          action="#"
-          className="flex gap-x-4 items-center"
-          onSubmit={submitSearch}
-        >
+        <div className="flex gap-x-4 items-center">
           <label htmlFor="search">Search for a bus:</label>
           <input
             type="text"
@@ -121,13 +121,7 @@ export default function BusesList({ buses, cooperativeName }: BusesListProps) {
             value={searchTerm}
             onChange={handleChange}
           />
-          <button
-            type="submit"
-            className="bg-blue-900 text-white px-4 py-2 rounded-md font-bold ml-2"
-          >
-            Search
-          </button>
-        </form>
+        </div>
       </div>
       <div className="max-w-screen-2xl">
         <div className="flex flex-col">
