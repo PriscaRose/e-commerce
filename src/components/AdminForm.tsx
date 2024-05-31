@@ -1,8 +1,8 @@
 import React, { useState, type FormEvent } from "react";
 import axios from "axios";
-import type { FormDataProps } from "../utils/type";
 import BusConfirmationModal from "./BusConfirmationModal";
 import BusForm from "./BusForm";
+import type { FormDataProps } from "../utils/type";
 import { defaultData } from "../utils/constants";
 
 export default function AddBusForm() {
@@ -23,7 +23,7 @@ export default function AddBusForm() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-        await axios.post(
+      await axios.post(
         "/api/createBus",
         { body: formData },
         {

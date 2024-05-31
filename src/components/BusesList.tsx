@@ -4,9 +4,9 @@ import { MdEdit } from "react-icons/md";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { RxReset } from "react-icons/rx";
 import ResetTripModal from "./ResetTripModal";
-import type { BusType } from "../utils/type";
 import DeleteBusModal from "./DeleteBusModal";
 import NoResulstFound from "./NoResultsFound";
+import type { BusType } from "../utils/type";
 
 interface BusesListProps {
   buses: BusType[];
@@ -33,8 +33,8 @@ export default function BusesList({ buses, cooperativeName }: BusesListProps) {
       return;
     }
 
-    const foundBuses = originalBuses.filter(
-      (bus: BusType) => bus.busNumber.toLowerCase() === searchTerm.toLowerCase()
+    const foundBuses = originalBuses.filter((bus: BusType) =>
+      bus.busNumber.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setBusesToDisplay(foundBuses);
   }, [originalBuses, searchTerm]);

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import TripDetails from "./TripDetails";
-import type { BusType } from "../utils/type";
-import { calculateArrivalTime, formatTime } from "../utils/helpers";
-import NoResulstFound from "./NoResultsFound";
 import { faRightLong } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import TripDetails from "./TripDetails";
+import NoResulstFound from "./NoResultsFound";
+import type { BusType } from "../utils/type";
+import { calculateArrivalTime, formatTime } from "../utils/helpers";
 
 interface BookingBusProps {
   buses: BusType[];

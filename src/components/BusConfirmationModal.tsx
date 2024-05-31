@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal } from "flowbite-react";
-import type { BusFormComponentProps } from "../utils/type";
 import BusForm from "./BusForm";
+import type { BusFormComponentProps } from "../utils/type";
 
 export default function BusConfirmationModal({
   formData,

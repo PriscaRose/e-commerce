@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import { Button } from "flowbite-react";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import { Button } from "flowbite-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
-import { buttonTheme } from "../utils/theme";
 import SubscriptionCheckout from "./SubscriptionCheckout";
+import { buttonTheme } from "../utils/theme";
 
 const STRIPE_KEY_API = import.meta.env.PUBLIC_STRIPE_API_KEY;
 const stripePromise = loadStripe(STRIPE_KEY_API);

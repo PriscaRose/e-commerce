@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "flowbite-react";
-import type { BusType, Seat } from "../utils/type";
 import PassengerInfoModal from "./PassengerInfoModal";
 import UnpickSeatModal from "./UnpickSeatModal";
+import type { BusType, Seat } from "../utils/type";
 import { formatTime, isPicked } from "../utils/helpers";
 import { getPicketSeatData } from "../stores/bus";
 
