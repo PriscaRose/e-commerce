@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Button } from "flowbite-react";
 import axios from "axios";
 import {
   loadStripe,
   type Stripe,
   type StripeElements,
 } from "@stripe/stripe-js";
-import { Button } from "flowbite-react";
 
 const STRIPE_KEY_API = import.meta.env.PUBLIC_STRIPE_API_KEY;
 

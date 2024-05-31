@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { type FormEvent } from "react";
+import React, { type FormEvent, useState } from "react";
 import {
   getSearchTerms,
   searchTerms,

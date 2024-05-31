@@ -5,10 +5,10 @@ import React, {
   useMemo,
   type FormEvent,
 } from "react";
-import type { FormDataProps, SeatDataProps } from "../utils/type";
 import UpdateBusModal from "./UpdateBusModal";
 import BusForm from "./BusForm";
 import BusConfirmationModal from "./BusConfirmationModal";
+import type { FormDataProps, SeatDataProps } from "../utils/type";
 import { defaultData } from "../utils/constants";
 
 export default function AdminBusDetails({ bus }: { bus: FormDataProps }) {

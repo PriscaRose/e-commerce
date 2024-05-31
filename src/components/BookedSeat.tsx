@@ -1,8 +1,14 @@
 import React, { useState, type FormEvent, useEffect, useCallback } from "react";
-import { type BusType } from "../utils/type";
-import { Tooltip, type CustomFlowbiteTheme, Flowbite } from "flowbite-react";
+import {
+  Tooltip,
+  type CustomFlowbiteTheme,
+  Flowbite,
+  Button,
+  Label,
+  TextInput,
+} from "flowbite-react";
 import { isPicked } from "../utils/helpers";
-import { Button, Label, TextInput } from "flowbite-react";
+import { type BusType } from "../utils/type";
 
 const customTheme: CustomFlowbiteTheme = {
   tooltip: {

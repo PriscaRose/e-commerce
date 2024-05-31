@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import type { BusType } from "../utils/type";
 import { MdEdit } from "react-icons/md";
 import UpdateDriver from "./DriversInfoModal";
-import { defaultData } from "../utils/constants";
 import NoResulstFound from "./NoResultsFound";
+import type { BusType } from "../utils/type";
+import { defaultData } from "../utils/constants";
 
 interface DriversListProps {
   cooperativeName: String;
