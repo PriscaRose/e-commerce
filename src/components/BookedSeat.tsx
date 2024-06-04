@@ -8,7 +8,7 @@ import {
   TextInput,
 } from "flowbite-react";
 import { isPicked } from "../utils/helpers";
-import { type BusType } from "../utils/type";
+import { type BusType, type Seat } from "../utils/type";
 
 const customTheme: CustomFlowbiteTheme = {
   tooltip: {
@@ -54,9 +54,9 @@ const BookedSeat = ({ bus }: { bus: BusType }) => {
     }
   }, [seatId, seat]);
 
-  const pickedSeat = localStorage.getItem("pickedSeat");
+  const getPickedSeat = localStorage.getItem("pickedSeat");
   const { seatPrice, totalPickedSeat } = JSON.parse(
-    pickedSeat ? pickedSeat : ""
+    getPickedSeat ? getPickedSeat : ""
   );
 
   const {
@@ -123,6 +123,11 @@ const BookedSeat = ({ bus }: { bus: BusType }) => {
       [name]: value,
     }));
   };
+
+  const isDisabled = updatedSeatsData.filter((seat: Seat) =>
+    isPicked(seat)
+  ).length === 0;
+
   return (
     <div className="flex flex-col">
       <h2 className="text-4xl font-bold my-8">
@@ -292,28 +297,42 @@ const BookedSeat = ({ bus }: { bus: BusType }) => {
           </div>
         </div>
       </div>
-      <p className="mt-8 uppercase">
-        Departure date:
-        <span className="font-bold"> {bus.departureDate.substring(0, 10)}</span>
-      </p>
-      <p className="mt-2 uppercase">
-        Departure time: <span className="font-bold"> {bus.departureTime}</span>
-      </p>
-      <p className="mt-2 uppercase">
-        Driver Contact:{" "}
-        <span className="font-bold">{bus?.driver?.driverPhoneNumber}</span>
-      </p>
-      <p className="mt-2 uppercase">
-        Cooperative Number :
-        <span className="font-bold">{bus.cooperative.phoneNumber}</span>
-      </p>
-      <p className="mt-2 uppercase">
-        Booked Seats: <span className="font-bold">{totalPickedSeat}</span>
-      </p>
-      <p className="mt-2 uppercase">
-        Subtotal:
-        <span className="font-bold">{seatPrice * totalPickedSeat} ar</span>
-      </p>
+      <div className="mb-8">
+        {!isDisabled && (
+          <div>
+            <p className="mt-8 uppercase">
+              Departure date:
+              <span className="font-bold">
+                {" "}
+                {bus.departureDate.substring(0, 10)}
+              </span>
+            </p>
+            <p className="mt-2 uppercase">
+              Departure time:{" "}
+              <span className="font-bold"> {bus.departureTime}</span>
+            </p>
+            <p className="mt-2 uppercase">
+              Driver Contact:{" "}
+              <span className="font-bold">
+                {bus?.driver?.driverPhoneNumber}
+              </span>
+            </p>
+            <p className="mt-2 uppercase">
+              Cooperative Number :
+              <span className="font-bold">{bus.cooperative.phoneNumber}</span>
+            </p>
+            <p className="mt-2 uppercase">
+              Booked Seats: <span className="font-bold">{totalPickedSeat}</span>
+            </p>
+            <p className="mt-2 uppercase">
+              Subtotal:
+              <span className="font-bold">
+                {seatPrice * totalPickedSeat} ar
+              </span>
+            </p>
+          </div>
+        )}
+      </div>
       <div>
         <button
           onClick={(e) => {
@@ -325,7 +344,7 @@ const BookedSeat = ({ bus }: { bus: BusType }) => {
           Go Back
         </button>
         <a href="/payment">
-          <button className="bg-blue-900 text-white px-6 py-2 rounded-md mt-3">
+          <button disabled={isDisabled} className={`${isDisabled ? "bg-gray-400 cursor-pointer" : "bg-blue-900"} bg-blue-900 text-white px-6 py-2 rounded-md mt-3`}>
             CHECKOUT
           </button>
         </a>
