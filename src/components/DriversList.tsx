@@ -94,10 +94,12 @@ export default function DriversList({
           })}
         </div>
       ) : (
-        <NoResulstFound
-          text="Please create new buses with drivers."
-          heading="Hmmm...looks like there are no drivers assigned to this cooperative!"
-        />
+        <div className="mt-36">
+          <NoResulstFound
+            text="Please create new buses with drivers."
+            heading="Hmmm...looks like there are no drivers assigned to this cooperative!"
+          />
+        </div>
       )}
       <UpdateDriver
         bus={pickedBus}

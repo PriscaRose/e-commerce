@@ -46,10 +46,10 @@ const DashboardComponent = ({ buses }: { buses: BusType[] }) => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl text-blue-900 font-semibold text-center mb-6">
+      <h1 className="text-3xl text-blue-900 font-semibold mb-6">
         Booking Overview
       </h1>
-      <div className="rounded-md p-6 mb-6">
+      <div>
         {busSeatsOverview.length !== 0 ? (
           <>
             <div>
@@ -92,8 +92,11 @@ const DashboardComponent = ({ buses }: { buses: BusType[] }) => {
             </div>
           </>
         ) : (
-          <div className="text-center w-full basis-[78%] max-h-screen overflow-y-auto pr-10">
-            Your booking overview will be here once you have buses available.
+          <div className="w-full flex flex-col items-center max-w-xl mx-auto justify-center h-screen">
+            <p className="text-center text-2xl font-medium">
+              Your booking overview will be displayed here once you have buses
+              available. Please, add new buses for your registered company!
+            </p>
           </div>
         )}
       </div>
